@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Books</title>
+</head>
+
+<body>
+<form action="/book/list" method="GET">
+    <label>Keyword:</label>
+    <input type="text" id="keyword" name="keyword">
+    </br>
+    <label>Author:</label>
+    <input type="text" id="author" name="author">
+    </br>
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" >Search</button></div>
+</form>
+<h2>List Books</h2>
+<% for(const book of books) { %>
+    <h3>
+        Title: <%= book.title %>
+    </h3>
+    <p>
+        Description: <%= book.description %>
+    </p>
+    <p>
+        Author: <%= book.author.name %>
+    </p>
+    <p>
+        Keyword: <%= book.keywords[0].keyword %>
+    </p>
+    <button>   <a href="/book/update/<%=book.id%>"> Update  </a>  </button>
+    <button>   <a href="/book/delete/<%=book.id%>"> Delete  </a>  </button>
+
+<% } %>
+</body>
+
+</html>
